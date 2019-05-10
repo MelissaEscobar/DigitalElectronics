@@ -118,7 +118,7 @@ def main():
 
 
 
-        #Ahora se ordenará la lista según la cantidad de unos
+#Ahora se ordenará la lista según la cantidad de unos
 
         
     listaOrdenada = sorted(mintermsList, key = lambda object : object.numOf1 )
@@ -126,12 +126,15 @@ def main():
     for e in listaOrdenada:
         print(e.__str__())
 
-    for  i in (len(listaOrdenada)):
-        j= i+1
-        #Si el mintermino siguiente tiene la misma cantidad de unos mas 1 que la posicion actual,  
-        # entonces hará lo que se propone en la siguiente condicion:
+#Comparacion inicial 
 
-        for j in (len(listaOrdenada)):
+    for  i in range(len(listaOrdenada)-1): #porque la iteracion no se hace con el ultimo elemento de la lista
+        j= i+1
+        
+        for j in range (len(listaOrdenada) ):
+          #Si el mintermino siguiente tiene la misma cantidad de unos mas 1 que la posicion actual,  
+          # entonces hará lo que se propone en la siguiente condicion:
+
             if (listaOrdenada[j].numOf1 == listaOrdenada[i].numOf1 +1):
                 while (listaOrdenada[j].numOf1 == listaOrdenada[i].numOf1 +1):
 
