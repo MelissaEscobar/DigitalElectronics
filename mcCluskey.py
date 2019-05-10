@@ -61,6 +61,32 @@ def compBinary(s1,s2):
     else:
         return False, None
 
+#---------------------------
+#Funcion para cambiar la diferencia enter dos cadenas de numeros binarios por el caracter '-'
+def cambiarDiferencia(s1, s2):
+
+    compStrings = compBinary(s1, s2)
+
+    if (compStrings[0] == True):
+
+        arrayS1 = []
+
+        #Agrego cada char del string a una lista, para hacer el cambio respectivo segun el  indice
+        #en el que cambian las dos cadenas
+        for i in s1:
+            arrayS1.append(i)
+
+        #Se hace el cambio del caracter por '-'
+        arrayS1[compStrings[1]] = '-'
+
+        #lo  regreso nuevamente como una cadena
+        str1 = ''.join(str(e) for e in arrayS1)
+
+        return str1
+
+    else :
+        return False 
+
 
 #Funcion para convertir un numero binario a una expresion logica
 
@@ -162,22 +188,26 @@ for i in range (len(listaOrdenada) -1):
     j = i+1
 
     while verdad :
-        if (listaOrdenada[j] == listaOrdenada[i]+1):
-            print("se compara la cantidad de unos de" + str(i)+ con los de + str(j))
+        if (listaOrdenada[j].numOf1 == listaOrdenada[i].numOf1+1):
+            #print("se compara la cantidad de unos de" + str(i)+ "con los de" + str(j))
 
-        elif (listaOrdenada[j] > listaOrdenada[i] +1):
+            #se hace la comparacion de los numeros  
+
+
+
+        elif (listaOrdenada[j].numOf1 > listaOrdenada[i].numOf1 +1):
             break # si la cantidad de unos del siguiente es mayor a la cantidad de unos de la posicion i
                   #termina de iterar sobre ese grupo de numeros binarios, para despues incrementar el valor de i
                   # e iniciar nuevamente el proceso con otro numero binario de la lista de minterems
+
+        elif( j == len(listaOrdenada)-1):
+            break #evitar que se desborded la lista
         
-
-
-
         else:
             pass
 
-        if (listaOrdenada)
-
+        j +=1
+        
 
 
 
