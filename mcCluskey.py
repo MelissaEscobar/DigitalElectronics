@@ -153,31 +153,32 @@ def main():
     for e in listaOrdenada:
         print(e.__str__())
 
-#Comparacion inicial 
+#Hace la comparacion inicial para empezar a crear la lista cn los primeros implicantes y la 
+#lista que despues se iterará nuevamente 
 
-    for  i in range(len(listaOrdenada)-1): #porque la iteracion no se hace con el ultimo elemento de la lista
-        j= i+1
+for i in range (len(listaOrdenada) -1):
+
+    verdad = True
+    j = i+1
+
+    while verdad :
+        if (listaOrdenada[j] == listaOrdenada[i]+1):
+            print("se compara la cantidad de unos de" + str(i)+ con los de + str(j))
+
+        elif (listaOrdenada[j] > listaOrdenada[i] +1):
+            break # si la cantidad de unos del siguiente es mayor a la cantidad de unos de la posicion i
+                  #termina de iterar sobre ese grupo de numeros binarios, para despues incrementar el valor de i
+                  # e iniciar nuevamente el proceso con otro numero binario de la lista de minterems
         
-        for j in range (len(listaOrdenada) ):
-          #Si el mintermino siguiente tiene la misma cantidad de unos mas 1 que la posicion actual,  
-          # entonces hará lo que se propone en la siguiente condicion:
-
-            if (listaOrdenada[j].numOf1 == listaOrdenada[i].numOf1 +1):
-                while (listaOrdenada[j].numOf1 == listaOrdenada[i].numOf1 +1):
-
-                    print("Tiene "+ str(j) +"cantidad de unos")
-
-                    #va a comparar el termino para saber si se pueden combinar(en caso de que solo tengan 
-                    # una posicion distinta) y cual es la posicion que se debe cambiar por el caracter 
-                    # especial, para este caso se usará '-'
-
-                    j +=1
 
 
 
+        else:
+            pass
 
-            else:
-                j +=1
+        if (listaOrdenada)
+
+
 
 
 
