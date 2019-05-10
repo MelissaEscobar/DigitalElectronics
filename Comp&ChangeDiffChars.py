@@ -1,6 +1,6 @@
 
+#Comparar dos cadenas de numeros binarios, revisa donde esta la diferencia
 
-#compare two binary strings, check where there is one difference
 def compBinary(s1,s2):
     count = 0
     pos = 0
