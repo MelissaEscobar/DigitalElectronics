@@ -48,7 +48,7 @@ def contOnes(numBinary):
 
 # ----------------------------------
 
-#compare two binary strings, check where there is one difference
+#ccomparar dos cadenas de numeros binarios, revisa donde esta la diferencia
 def compBinary(s1,s2):
     count = 0
     pos = 0
