@@ -61,7 +61,34 @@ def compBinary(s1,s2):
     else:
         return False, None
 
-#
+
+#Funcion para convertir un numero binario a una expresion logica
+
+def conBinaryToExp(vars, bin):
+        
+    """funcion que recibe las variables que se utilizaran para asignarlas a cada bit del minterm 
+    y recibe tambien el minterm expresado como un numero binario. La funcion convierte el numero binario # a la expresion logica que formará parte de la ecuación lógica. 
+    NOTA:  Las variables negadas se expresan de la "forma variable *" , por ejemplo a* """
+
+
+    express = ''
+    for i in range(len(bin)):
+        if (bin[i] == '0'):
+            string = vars[i] + '* ' #si es un cero concateno la letra correspondiente a la posicion
+                                     #Con el simbolo elegido parala negacion de la variable 
+            express += string
+
+        else:
+            string = vars[i] #si es un uno concatenoa ala cadena auxiliar la letra correspondiente a la posicion
+            
+            express += string
+
+    return express
+
+
+
+
+
 
  #-----------     main    --------------
 
