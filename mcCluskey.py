@@ -93,7 +93,8 @@ def cambiarDiferencia(s1, s2):
 def conBinaryToExp(vars, bin):
         
     """funcion que recibe las variables que se utilizaran para asignarlas a cada bit del minterm 
-    y recibe tambien el minterm expresado como un numero binario. La funcion convierte el numero binario # a la expresion logica que formará parte de la ecuación lógica. 
+    y recibe tambien el minterm expresado como un numero binario. La funcion convierte el numero binario 
+    a la expresion logica que formará parte de la ecuación lógica. 
     NOTA:  Las variables negadas se expresan de la "forma variable *" , por ejemplo a* """
 
 
@@ -105,7 +106,7 @@ def conBinaryToExp(vars, bin):
             express += string
 
         else:
-            string = vars[i] #si es un uno concatenoa ala cadena auxiliar la letra correspondiente a la posicion
+            string = vars[i] #si es un uno concateno a la cadena auxiliar la letra correspondiente a la posicion
             
             express += string
 
@@ -184,8 +185,11 @@ def main():
     #lista que despues se iterará nuevamente 
 
     i=0
-    while listaOrdenada[i].numOf1 < listaOrdenada[len(listaOrdenada)-1].numOf1: #mientras la cantidad de unos de la posicioni sea menor a 
-        #la máxima cantidad de unos que contiene la listaOrdenada ordenada, entonces:
+    mix1Minterms = [] #lista en donde se guardarán los minterms que tienen solo una diferencia 
+
+    while listaOrdenada[i].numOf1 < listaOrdenada[len(listaOrdenada)-1].numOf1: #mientras la cantidad de 
+        # unos de la posicion i sea menor a la máxima cantidad de unos que contiene 
+        # la listaOrdenada ordenada, entonces:
 
         listaAux = []
 
@@ -198,12 +202,27 @@ def main():
             else:
                 pass
 
-        #test     
+        #A continuacion recorreré cada uno de los elementos de la listaAux comparando sus dígitos
+        #con los del minterm que se encuentra en la posicion i. Si solo encuentra una diferencia 
+        #entre sus digitos, entonces agregará el minterm a una nueva lista que después será nuevamente 
+        #comparada 
+
+        for e in listaAux:
+            m = compBinary(listaOrdenada[i].numBinary, listaAux[e].numBinary)
+
+
+
+
+
+
+
+        # --- test  -----    
         print("Para  el "+str(listaOrdenada[i].numOf1) + "la lista es: " )
         for e in listaAux:
             print(e.__str__())
+ 
+        # ---- end of test -----
 
-        
 
         i +=1
 
