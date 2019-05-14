@@ -48,7 +48,7 @@ def contOnes(numBinary):
 
 # ----------------------------------
 
-#ccomparar dos cadenas de numeros binarios, revisa donde esta la diferencia
+#Comparar dos cadenas de numeros binarios, revisa donde esta la diferencia
 def compBinary(s1,s2):
     count = 0
     pos = 0
@@ -62,7 +62,7 @@ def compBinary(s1,s2):
         return False, None
 
 #---------------------------
-#Funcion para cambiar la diferencia enter dos cadenas de numeros binarios por el caracter '-'
+#Funcion para cambiar la diferencia entre dos cadenas de numeros binarios por el caracter '-'
 def cambiarDiferencia(s1, s2):
 
     compStrings = compBinary(s1, s2)
@@ -178,35 +178,36 @@ def main():
 
     for e in listaOrdenada:
         print(e.__str__())
+    
 
-#Hace la comparacion inicial para empezar a crear la lista cn los primeros implicantes y la 
-#lista que despues se iterará nuevamente 
+    #Hace la comparacion inicial para empezar a crear la lista con las comparaciones entre los numeros binarios,
+    #lista que despues se iterará nuevamente 
 
-for i in range (len(listaOrdenada) -1):
+    i=0
+    while listaOrdenada[i].numOf1 < listaOrdenada[len(listaOrdenada)-1].numOf1: #mientras la cantidad de unos de la posicioni sea menor a 
+        #la máxima cantidad de unos que contiene la listaOrdenada ordenada, entonces:
 
-    verdad = True
-    j = i+1
+        listaAux = []
 
-    while verdad :
-        if (listaOrdenada[j].numOf1 == listaOrdenada[i].numOf1+1):
-            #print("se compara la cantidad de unos de" + str(i)+ "con los de" + str(j))
+        for e in range (i+1,  len(listaOrdenada)):
+            print( "e is: " + str(e))
 
-            #se hace la comparacion de los numeros  
+            if listaOrdenada[e].numOf1 == listaOrdenada[i].numOf1 +1:
+                listaAux.append(listaOrdenada[e])
 
+            else:
+                pass
 
+        #test     
+        print("Para  el "+str(listaOrdenada[i].numOf1) + "la lista es: " )
+        for e in listaAux:
+            print(e.__str__())
 
-        elif (listaOrdenada[j].numOf1 > listaOrdenada[i].numOf1 +1):
-            break # si la cantidad de unos del siguiente es mayor a la cantidad de unos de la posicion i
-                  #termina de iterar sobre ese grupo de numeros binarios, para despues incrementar el valor de i
-                  # e iniciar nuevamente el proceso con otro numero binario de la lista de minterems
-
-        elif( j == len(listaOrdenada)-1):
-            break #evitar que se desborded la lista
         
-        else:
-            pass
 
-        j +=1
+        i +=1
+
+
         
 
 
