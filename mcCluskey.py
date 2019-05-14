@@ -63,29 +63,19 @@ def compBinary(s1,s2):
 
 #---------------------------
 #Funcion para cambiar la diferencia entre dos cadenas de numeros binarios por el caracter '-'
-def cambiarDiferencia(s1, s2):
-
-    compStrings = compBinary(s1, s2)
-
-    if (compStrings[0] == True):
-
-        arrayS1 = []
-
-        #Agrego cada char del string a una lista, para hacer el cambio respectivo segun el  indice
-        #en el que cambian las dos cadenas
-        for i in s1:
-            arrayS1.append(i)
-
-        #Se hace el cambio del caracter por '-'
-        arrayS1[compStrings[1]] = '-'
-
-        #lo  regreso nuevamente como una cadena
-        str1 = ''.join(str(e) for e in arrayS1)
-
-        return str1
-
-    else :
-        return False 
+def cambiarDiferencia(s1, s2, diff): #diff es la posicion donde esta la dferencia
+        
+    arrayS1 = []
+    #Agrego cada char del string a una lista, para hacer el cambio respectivo segun el  indice
+    #en el que cambian las dos cadenas
+    for i in s1:
+        arrayS1.append(i)
+    #Se hace el cambio del caracter por '-'
+    arrayS1[diff] = '-'
+    #lo  regreso nuevamente como una cadena
+    str1 = ''.join(str(e) for e in arrayS1)
+ 
+    return str1
 
 
 #Funcion para convertir un numero binario a una expresion logica
@@ -204,18 +194,21 @@ def main():
 
         #A continuacion recorreré cada uno de los elementos de la listaAux comparando sus dígitos
         #con los del minterm que se encuentra en la posicion i. Si solo encuentra una diferencia 
-        #entre sus digitos, entonces agregará el minterm a una nueva lista que después será nuevamente 
+        #entre sus digitos, entonces cambiará el  dítgito diferentepor el caracter '-' y 
+        # agregará el minterm a una nueva lista que después será nuevamente 
         #comparada 
 
-        for e in listaAux:
+        for e in  range (len(listaAux)):
             m = compBinary(listaOrdenada[i].numBinary, listaAux[e].numBinary)
+            if m[0] == True: #si solo hay una diferencia entre los numeros binarios
+                
+                d = cambiarDiferencia(listaOrdenada[i].numBinary, listaAux[e].numBinary, m[1])
+                mix1Minterms.append(d) #lo agrega a la lista de minterms con el primer cambio
+                #ya no el objeto minterm, si no solamente el numero con el cambio del caracter '-'
+            else:
+                pass #Si hay más de una diferencia, continua con el siguiente en la listaAux
 
-
-
-
-
-
-
+        
         # --- test  -----    
         print("Para  el "+str(listaOrdenada[i].numOf1) + "la lista es: " )
         for e in listaAux:
@@ -223,9 +216,11 @@ def main():
  
         # ---- end of test -----
 
-
         i +=1
 
+    print("Primer mix: ")
+    for e in mix1Minterms:
+        print(e)
 
         
 
