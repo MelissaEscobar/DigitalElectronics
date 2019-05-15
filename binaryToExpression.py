@@ -6,11 +6,13 @@ def conBinaryToExp(vars, bin):
                                      #Con el simbolo elegido parala negacion de la variable 
             express += string
 
-        else:
-            string = vars[i] #si es un uno concatenoa ala cadena auxiliar la letra correspondiente a la posicion
+        elif (bin[i] == '1'):
+            string = vars[i] #si es un uno concateno a la cadena auxiliar la letra correspondiente a la posicion
             
             express += string
+        else: #En caso de que sea '-' no concatena nada
+            pass
 
     return express
 
-print (conBinaryToExp('abcd', '0111'))
+print (conBinaryToExp('abcd', '01-0'))
