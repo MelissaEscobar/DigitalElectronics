@@ -118,11 +118,29 @@ def mixAgain(mix1Minterms): #recibe la lista de numeros binarios y los caractere
 
     for i in range (len(mix1Minterms)):
 
-        for j in range (i+1, len(mix1Minerms)):
+        for j in range (i+1, len(mix1Minterms)):
             comp = compBinary(mix1Minterms[i], mix1Minterms[j])
 
-            if comp[0]== True: # si las cadenas tienen una diferencia, nuevamente se hará el cambio por '-'
+            if comp[0]== True: # si las cadenas tienen solo una diferencia, nuevamente se hará el cambio por '-'
                 change = cambiarDiferencia(mix1Minterms[i], mix1Minterms[j], comp[1] )
+
+                #se agregan los dos elementos que se pueden "mezclar" a la lista
+                canMix.append(mix1Minterms[i]) 
+                canMix.append(mix1Minterms[j])
+
+                #se agrega el nuevo numero binario modificado a la lista 
+                mix2Minterms.append(change)
+
+            else: # si tienen mas de una diferencia, es decir que no se pueden "mezclar"
+                noMix.append(mix1Minterms[i])
+
+    #Al terminar las comparaciones, elimino los binarios repetidos en noMix y en canMix
+
+    noMix2 = list(set(noMix))
+    canMix2 = list(set(canMix))
+
+    #Evaluo si los elementos de noMix se encuentran en canMix. Si no están, entonces es un primer implicante
+
 
 
 
