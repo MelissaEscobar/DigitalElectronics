@@ -95,10 +95,12 @@ def conBinaryToExp(vars, bin):
                                      #Con el simbolo elegido parala negacion de la variable 
             express += string
 
-        else:
+        elif (bin[i] == '1'):
             string = vars[i] #si es un uno concateno a la cadena auxiliar la letra correspondiente a la posicion
             
             express += string
+        else: #En caso de que sea '-' no concatena nada
+            pass
 
     return express
 
@@ -287,8 +289,41 @@ def main():
     #El siguiente paso es recorrer la lista obtenida para determinar si es posible realizar un
     # nuevo cambio entre sus digitos por el caracter '-'
 
+
+    
     r = mixAgain(mix1Minterms)
     print(r)
+    
+    primImplicante = r[0] #lista en donde se guardaran los que son definitivamente primeros implicantes
+    mix2Minterms = r[1] #lista en donde se guardaran los numeros binarios con el nuevo cambio
+
+    #Concateno la lista de primeros implicantes y minterms ya resuelta 
+
+    listaFinal = primImplicante + mix2Minterms
+
+    #envio la lista para obtener la expresion logica
+    vars = 'abcdefghjklmnopqrstuvwxyz'
+
+    varsList =[]
+    for i in range (numMinterms):
+        varsList.append(vars[i])
+
+    varsC = ''.join(varsList) # convierto la lista en cadena 
+
+    logicExpr=[]
+
+    for e in listaFinal:
+        a = conBinaryToExp(varsC, e)
+        logicExpr.append(a)
+        logicExpr.append(" + ")
+
+    logicExprString = ''.join(logicExpr)   
+
+    print(logicExprString) 
+    
+
+
+
 
 
 
