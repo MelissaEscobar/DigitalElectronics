@@ -148,6 +148,13 @@ def mixAgain(mix1Minterms): #recibe la lista de numeros binarios y los caractere
         else:
             primImplicante.append(e)
 
+    if canMix2:#si la lista no esta vacia, retorna la lista de primeros implicantes, canMix2 y True
+        return (primImplicante, canMix2,  True)
+
+    else:
+        return( primImplicante, canMix2, False )
+
+
 
 
 
@@ -280,9 +287,8 @@ def main():
     #El siguiente paso es recorrer la lista obtenida para determinar si es posible realizar un
     # nuevo cambio entre sus digitos por el caracter '-'
 
-
-    primImplicante = [] #lista de los primeros implicantes
-    mix2Minterms = []  
+    r = mixAgain(mix1Minterms)
+    print(r)
 
 
 
