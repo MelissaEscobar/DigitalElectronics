@@ -102,6 +102,35 @@ def conBinaryToExp(vars, bin):
 
     return express
 
+#------- funcion recursiva para evaluar por n veces siguientes a la primera vez si se pueden 
+# volver a comparar los elementos de la lista
+
+def mixAgain(mix1Minterms): #recibe la lista de numeros binarios y los caracteres '-'
+    #y devuelve una lista con los primeros implicantes, los numeros binarios nuevamente modificados  
+    # y un booleano que dice si se pudo efectuar un cambio 
+    
+    noMix = [] #lista de los minterms que podrían ser primeros implicantes
+    canMix = [] #lista de los minterms que se pueden mezclar nuevamente
+
+    #Estas son las dos listas que retorna la funcion
+    primImplicante = [] #lista en donde se agregaran los que son definitivamente primeros implicantes
+    mix2Minterms = [] #lista en donde se agragaran los numeros binarios con el nueo cambio
+
+    for i in range (len(mix1Minterms)):
+
+        for j in range (i+1, len(mix1Minerms)):
+            comp = compBinary(mix1Minterms[i], mix1Minterms[j])
+
+            if comp[0]== True: # si las cadenas tienen una diferencia, nuevamente se hará el cambio por '-'
+                change = cambiarDiferencia(mix1Minterms[i], mix1Minterms[j], comp[1] )
+
+
+
+
+
+
+
+
 
 
 
@@ -222,7 +251,12 @@ def main():
     for e in mix1Minterms:
         print(e)
 
-        
+    #El siguiente paso es recorrer la lista obtenida para determinar si es posible realizar un
+    # nuevo cambio entre sus digitos por el caracter '-'
+
+
+    primImplicante = [] #lista de los primeros implicantes
+    mix2Minterms = []  
 
 
 
