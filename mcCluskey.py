@@ -141,6 +141,14 @@ def mixAgain(mix1Minterms): #recibe la lista de numeros binarios y los caractere
 
     #Evaluo si los elementos de noMix se encuentran en canMix. Si no están, entonces es un primer implicante
 
+    for e in noMix2:
+        if e in canMix2: #Si el elemento de noMix2 se encuentra en canMix2
+            pass #porque quiere decir que el elemento no es primer implicante
+        
+        else:
+            primImplicante.append(e)
+
+
 
 
 
