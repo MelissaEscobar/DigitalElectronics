@@ -149,10 +149,10 @@ def mixAgain(mix1Minterms): #recibe la lista de numeros binarios y los caractere
             primImplicante.append(e)
 
     if canMix2:#si la lista no esta vacia, retorna la lista de primeros implicantes, canMix2 y True
-        return (primImplicante, canMix2,  True)
+        return (primImplicante, mix2Minterms,  True)
 
     else:
-        return( primImplicante, canMix2, False )
+        return( primImplicante, mix2Minterms, False )
 
 
 
