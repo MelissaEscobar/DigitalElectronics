@@ -13,14 +13,6 @@ class Minterm(object):
         self.numBinary = numBinary
         self.numOf1 = numOf1
 
-    def getNumDecim(self):
-        return self.numDecim
-
-    def getNumBinary(self):
-         return self.numBinary
-    
-    def getNumOf1(self):
-        return self.numOf1
     
     def __str__(self):
         return (self.numDecim, self.numBinary, self.numOf1)
@@ -314,10 +306,14 @@ def main():
 
     for e in listaFinal:
         a = conBinaryToExp(varsC, e)
-        logicExpr.append(a)
-        logicExpr.append(" + ")
+        logicExpr.append(a + " + " )
+        #logicExpr.append()
 
-    logicExprString = ''.join(logicExpr)   
+    s = set(logicExpr)
+
+    logicExprString = ''.join(s) 
+    
+
 
     print(logicExprString) 
     
